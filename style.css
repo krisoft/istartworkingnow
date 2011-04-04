@@ -1,0 +1,65 @@
+body {
+  background: #22252a;
+  color: #eee;
+  font-size: 14pt;
+  line-height: 150%;
+  font-family: times, Times New Roman, times-roman, georgia, serif; 
+}
+
+#editmode{
+ max-width: 30em;
+  margin: 0 0 5em 9em;
+}
+#listmode{
+ max-width: 30em;
+  margin: 0 0 5em 9em;
+
+}
+
+h1{
+	font-size:53px;
+	color:#CCDD55;
+	padding:30px;
+	padding-bottom:13px;
+}
+
+h2{
+  padding-left:40px;
+  padding-bottom:50px;
+}
+
+.todo{
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border:1px solid #AAA;
+	background-color:#121314;
+	width:700px;
+	text-align:center;
+	margin:10px;
+}
+#todolist{
+	padding-bottom:20px;
+}
+
+#actions{
+	width:700px;
+	position:relative;
+}
+a{
+	color:#CCDD55;
+}
+
+#todotext{
+	font-size:53px;
+	padding-top:100px;
+	width:100%;
+	text-align:center;
+}
+#todocounter{
+	padding-top:15px;
+	color:#AAA;
+	text-align:center;
+}
+#nextgo{
+	padding-left:50px;
+}

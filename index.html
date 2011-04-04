@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>
+		I start working now!
+	</title>
+	<link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<div id="editmode">
+		<h1>
+			I start working now!
+		</h1>
+		<h2>
+			Need a ticking clock to concentrate? Take this...
+		</h2>
+		<div id="todos">
+			<span id="todospan">I have to:</span>
+			<ul id="todolist">
+				<li contentEditable="true" class="todo">
+					type here...
+				</li>
+			</ul>
+			<div id="actions">
+				<a href="#" id="addtodo">add more</a> or
+				<a href="#" id="donelist">let's start the clock!</a>
+			</div>
+		</div>
+	</div>
+	<div id="tickmode" style="display:none">
+		<div id="todotext">put it on github</div>
+		<div id="todocounter">13 minutes</div>
+		<a href="#" id="nextgo">done and next!</a>
+	</div>
+	<div id="listmode" style="display:none">
+		<h1>
+			Congratulation
+		</h1>
+		<h2>
+			you are done with:
+		</h2>
+		<ul id="finallist">
+		</ul>
+	</div
+		<script type="text/javascript" src="site.js"></script>	
+</body>
+</html>
