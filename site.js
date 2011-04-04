@@ -48,7 +48,7 @@
 						if(minute<60){
 							text=minute+" min";
 						}else{
-							var hour=Math.floor(sec/60);
+							var hour=Math.floor(minute/60);
 							var minute=minute-hour*60;
 							text=hour+" h "+minute+" min";
 						}
