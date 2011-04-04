@@ -3,7 +3,7 @@
 					$("#todolist").append('<li contentEditable="true" class="todo">type here...</li>');
 				};
 				$('#addtodo').click(addNewTodo);
-				
+							
 				var list=[];
 				var actual;
 				var startTime=0;
