@@ -3,8 +3,8 @@
 	<title>
 		I start working now!
 	</title>
-	<link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="reset.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen">
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="site.js"></script>	
 </head>
@@ -16,23 +16,25 @@
 		<h2>
 			Need a ticking clock to concentrate? Take this...
 		</h2>
+		<form href="#" onSubmit="return false;">
 		<div id="todos">
 			<span id="todospan">I have to:</span>
 			<ul id="todolist">
-				<li contentEditable="true" class="todo">
-					type here...
-				</li>
+				<li ><input class="todo" input type="text" value="" title="type here..."></li>
 			</ul>
 			<div id="actions">
-				<a href="#" id="addtodo">add more</a> or
+				<a href="#" id="addtodo">add more</a> <span class="ortitle">or</span>
 				<a href="#" id="donelist">let's start the clock!</a>
 			</div>
 		</div>
+		</form>
 	</div>
 	<div id="tickmode" style="display:none">
 		<div id="todotext">put it on github</div>
 		<div id="todocounter">13 minutes</div>
-		<a href="#" id="nextgo">done and next!</a>
+		<div id="tickmodeactions">
+			<a href="#" id="pause">pause</a> <span >or</span> <a href="#" id="nextgo">done and next!</a>
+		</div>
 	</div>
 	<div id="listmode" style="display:none">
 		<h1>

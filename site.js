@@ -1,24 +1,55 @@
         $(document).ready(function(){
+        		function regInputFunc(){
+        			$('.todo').keypress(function(e){
+        				if(e.keyCode==13){
+        					addNewTodo();
+        					return false;
+        				}
+        			});        			
+        			$(':input[title]').each(function() {
+					  var $this = $(this);
+					  if($this.val().trim() === '') {
+						$this.val($this.attr('title'));
+						$this.addClass("fictive");
+					  }
+					  $this.focus(function() {
+						if($this.val().trim() === $this.attr('title')) {
+						  $this.val('');
+						  $this.removeClass("fictive");
+						}
+					  });
+					  $this.blur(function() {
+						if($this.val().trim() === '') {
+						  $this.val($this.attr('title'));
+						  $this.addClass("fictive");
+						}
+					  });
+					});
+        		}
+        		regInputFunc();
 				function addNewTodo(){
-					$("#todolist").append('<li contentEditable="true" class="todo">type here...</li>');
+					$("#todolist").append('<li><input class="todo" type="text" value="" title="type here..."></li>');
+					regInputFunc();
+					$(".todo:last").focus();
 				};
 				$('#addtodo').click(addNewTodo);
 							
 				var list=[];
 				var actual;
-				var startTime=0;
+				var paused=false;
 				var timer;
 				function startTicking(){
 					$(".todo").each(function(i,item){
 						var o={
-							text:$(item).text(),
+							text:$(item).val().trim(),
 							elapsedTime:0,
 							done:false
 						};
-						list.push(o);
+						if((o.text!="type here...")&&(o.text!="")){
+							list.push(o);
+						}
 					});
 					actual=0;
-					startTime=new Date().getTime();
 					renderActual();
 					refreshTime();
 					timer=setInterval(refreshTime,1000);
@@ -32,15 +63,11 @@
 				}
 				function saveActual(){
 					list[actual].done=true;
-					var actualTime=new Date().getTime();
-					list[actual].elapsedTime=actualTime-startTime;
-					startTime=actualTime;
 					actual+=1;
 				}
 				
-				function toTime(ms){
+				function toTime(sec){
 					var text="";
-					var sec=Math.floor(ms/1000);				
 					if(sec<60){
 						text=sec+" s";
 					}else{
@@ -57,19 +84,30 @@
 				}
 				function refreshTime(){
 					if( actual<list.length){
-						var actualTime=new Date().getTime();
-						var elapsedTime=actualTime-startTime;
-				
-						$("#todocounter").text(toTime(elapsedTime));
+						if(!paused){
+							list[actual].elapsedTime+=1;
+						}
+						$("#todocounter").text(toTime(list[actual].elapsedTime));
 					}
 				}
+				
+				function pauseOrPlay(){
+					paused=!paused;
+					document.title=pause;
+					if(paused){
+						$("#pause").text("start it again");
+					}else{
+						$("#pause").text("pause");
+					}
+				}
+				$("#pause").click(pauseOrPlay);
 				
 				function renderDone(){
 					$("#tickmode").hide();
 					$("#listmode").show();
 					var html='';
 					jQuery.each(list,function(i,o){
-						html+='<li contentEditable="true" class="todo">'+o.text+' under '+toTime(o.elapsedTime)+'</li>';
+						html+='<li class="todo">'+o.text+' under '+toTime(o.elapsedTime)+'</li>';
 					});
 					$('#finallist').append(html);
 				}
