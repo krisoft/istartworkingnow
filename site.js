@@ -49,10 +49,18 @@
 							list.push(o);
 						}
 					});
-					actual=0;
-					renderActual();
-					refreshTime();
-					timer=setInterval(refreshTime,1000);
+					if(list.length==0){
+						var lastItem=$('.todo:last');
+						lastItem.animate({width: 800}, 500, function() {					  		
+							lastItem.animate({width: 700}, 500);
+						});
+
+					}else{
+						actual=0;
+						renderActual();
+						refreshTime();
+						timer=setInterval(refreshTime,1000);
+					}
 				}
 				$("#donelist").click(startTicking);
 				

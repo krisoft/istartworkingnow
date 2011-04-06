@@ -55,12 +55,11 @@ h2{
 #todolist{
 	padding-bottom:20px;
 }
-
-#actions{
+#editmodeactions{
 	width:700px;
 	position:relative;
 }
-#actions a{
+.actions a{
 	-moz-border-radius: 20px;
 	-webkit-border-radius: 20px 50% ;
 	background-color:#CCDD55;
@@ -91,5 +90,6 @@ h2{
 	text-align:center;
 }
 #tickmodeactions{
+		padding-top:100px;
 		padding-left:50px;
 }
